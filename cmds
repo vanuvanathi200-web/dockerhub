@@ -1,0 +1,54 @@
+
+# EXPERIMENT 9 - RUN A CONTAINER FROM DOCKER HUB
+
+# Step 1: Login to Docker Hub
+sudo docker login
+
+# Step 2: Search for an image
+sudo docker search hello-world
+
+# Step 3: Pull an image
+sudo docker pull hello-world
+
+# Step 4: List downloaded images
+sudo docker images
+
+# Step 5: Run the container
+sudo docker run hello-world
+
+# Step 6: Run Ubuntu container
+sudo docker run -it ubuntu bash
+
+# Exit from Ubuntu container
+exit
+
+# Step 7: List all containers
+sudo docker ps -a
+
+# Step 8: Create a working directory
+mkdir ~/dockerhub-lab
+cd ~/dockerhub-lab
+
+# Step 9: Create Dockerfile
+nano Dockerfile
+
+# Paste the following lines inside Dockerfile:
+FROM busybox
+CMD echo "Hello world! This is my first Docker image."
+
+# Save the file and exit
+
+# Step 10: Build Docker image
+sudo docker build -t YOUR_DOCKER_ID/my-private-repo .
+
+# Step 11: Run custom image
+sudo docker run YOUR_DOCKER_ID/my-private-repo
+
+# Step 12: Push image to Docker Hub
+sudo docker push YOUR_DOCKER_ID/my-private-repo
+
+# Step 13: Verify image
+sudo docker images
+
+# Step 14: Check running containers
+sudo docker ps -a
